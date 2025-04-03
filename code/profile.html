@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile - Donate Blood</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(rgba(139, 0, 0, 0.85), rgba(139, 0, 0, 0.85)), 
+                  url('https://images.unsplash.com/photo-1571844307880-751c6d86f3f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      font-family: 'Poppins', Arial, sans-serif;
+      color: #333;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #8b0000, #d32f2f);
+      padding: 15px 30px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      color: white;
+      font-size: 1.8em;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo i {
+      color: #ffcccb;
+    }
+
+    .nav-button {
+      text-decoration: none;
+      color: white;
+      font-size: 1.1em;
+      font-weight: 500;
+      padding: 10px 25px;
+      border-radius: 30px;
+      background-color: rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-button:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 50px auto;
+      background-color: rgba(255, 255, 255, 0.97);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+      animation: fadeIn 0.6s ease-out;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, #d32f2f, #8b0000);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #8b0000;
+      text-align: center;
+      margin-bottom: 30px;
+      font-weight: 700;
+      position: relative;
+      display: inline-block;
+      width: 100%;
+    }
+
+    h1::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, #d32f2f, #8b0000);
+      border-radius: 2px;
+    }
+
+    .profile-info {
+      background-color: #fff9f9;
+      padding: 30px;
+      border-radius: 10px;
+      border-left: 5px solid #d32f2f;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .profile-info p {
+      margin: 15px 0;
+      font-size: 1.1em;
+      padding: 8px 0;
+      border-bottom: 1px dashed #e0e0e0;
+      display: flex;
+      align-items: center;
+    }
+
+    .profile-info p:last-child {
+      border-bottom: none;
+    }
+
+    .profile-info p strong {
+      color: #8b0000;
+      font-weight: 600;
+      min-width: 120px;
+      display: inline-block;
+    }
+
+    .profile-info p i {
+      color: #d32f2f;
+      margin-right: 10px;
+      width: 20px;
+      text-align: center;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 12px 30px;
+      font-size: 1.1em;
+      border-radius: 30px;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #d32f2f, #8b0000);
+    }
+
+    .btn-secondary {
+      background: linear-gradient(135deg, #004080, #002b5c);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #b71c1c, #8b0000);
+    }
+
+    .btn-secondary:hover {
+      background: linear-gradient(135deg, #003366, #002b5c);
+    }
+
+    .blood-drop {
+      position: absolute;
+      opacity: 0.1;
+      z-index: -1;
+    }
+
+    .blood-drop-1 {
+      top: 20px;
+      right: 20px;
+      font-size: 100px;
+      transform: rotate(15deg);
+    }
+
+    .blood-drop-2 {
+      bottom: 30px;
+      left: 30px;
+      font-size: 80px;
+      transform: rotate(-10deg);
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        margin: 20px;
+        padding: 25px;
+      }
+      
+      .profile-info p {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+      }
+      
+      .profile-info p strong {
+        min-width: auto;
+      }
+      
+      .button-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="nav-container">
+      <div class="logo">
+        <i class="fas fa-tint"></i>
+        <span>Blood Donor</span>
+      </div>
+      <a href="dashboard.html" class="nav-button">
+        <i class="fas fa-arrow-left"></i>
+        Back to Dashboard
+      </a>
+    </div>
+  </header>
+
+  <div class="container">
+    <i class="fas fa-tint blood-drop blood-drop-1"></i>
+    <i class="fas fa-tint blood-drop blood-drop-2"></i>
+    
+    <h1>Your Profile</h1>
+    
+    <div id="profileInfo" class="profile-info"></div>
+    
+    <div class="button-container">
+      <a href="update.html" class="btn btn-primary">
+        <i class="fas fa-user-edit"></i>
+        Update Profile
+      </a>
+      <a href="first.html" class="btn btn-secondary">
+        <i class="fas fa-sign-out-alt"></i>
+        Logout
+      </a>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const user = JSON.parse(localStorage.getItem('user'));
+      if (user) {
+        const profileInfo = `
+          <p><i class="fas fa-user"></i><strong>Name:</strong> ${user.name}</p>
+          <p><i class="fas fa-birthday-cake"></i><strong>Age:</strong> ${user.age}</p>
+          <p><i class="fas fa-venus-mars"></i><strong>Gender:</strong> ${user.gender}</p>
+          <p><i class="fas fa-envelope"></i><strong>Email:</strong> ${user.email}</p>
+          <p><i class="fas fa-tint"></i><strong>Blood Group:</strong> <span style="background-color: #ffebee; color: #d32f2f; padding: 3px 10px; border-radius: 15px; font-weight: 600;">${user.bloodGroup}</span></p>
+          <p><i class="fas fa-phone"></i><strong>Phone:</strong> ${user.phone}</p>
+          <p><i class="fas fa-city"></i><strong>District:</strong> Visakhapatnam</p>
+          <p><i class="fas fa-map-marker-alt"></i><strong>Locality:</strong> ${user.locality}</p>
+        `;
+        document.getElementById('profileInfo').innerHTML = profileInfo;
+      } else {
+        window.location.href = 'login.html';
+      }
+    });
+  </script>
+</body>
+</html>
